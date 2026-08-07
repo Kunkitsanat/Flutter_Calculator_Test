@@ -33,6 +33,7 @@ class _CalculatorPage extends State<SimpleCalculator> {
 
   String _result = "";
   String operator = "";
+  double vat = 0.07;
 
   List <String> history = [];
 
@@ -40,6 +41,14 @@ class _CalculatorPage extends State<SimpleCalculator> {
     setState( () {
       history.clear();
     });
+  }
+
+  String calVat(double num1,String op,double num2 ){
+    String result = calculate(num1, op, num2);
+    double x = double.tryParse(result)??0;
+
+    double total = x + (x*vat);
+    return total.toString();
   }
 
   @override
@@ -178,6 +187,21 @@ class _CalculatorPage extends State<SimpleCalculator> {
             ElevatedButton(
               onPressed: clearHistory,
               child: const Text('C', style: TextStyle(fontSize: 28)),
+            ),
+            ElevatedButton(
+              onPressed: (){
+                if(operator == 'x'){
+                  operator = '*';
+                }
+                else if(operator == '÷'){
+                  operator = '/';
+                }
+                setState(() {
+                  _result = calVat(double.tryParse(num1.text) ?? 0,operator, double.tryParse(num2.text) ?? 0);
+                });
+                history.insert(0,"Cal VAT: ${_result}");
+              },
+              child: const Text('Cal VAT', style: TextStyle(fontSize: 28)),
             ),
           ],
         ),
