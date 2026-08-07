@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_calc/calculate.dart';
 import 'about_page.dart';
+import 'odd_even.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +59,15 @@ class _CalculatorPage extends State<SimpleCalculator> {
     Widget calculatorContent = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        TextButton(onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const OddEven()),
+            );
+        }, 
+        child: const Text('OddEven',style: TextStyle(fontSize: 32),)),
+        const SizedBox(height: 20,),
+        
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
