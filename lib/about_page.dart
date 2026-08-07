@@ -46,6 +46,11 @@ class AboutPage extends StatelessWidget {
                 '3. นายคุณากร เจริญสุข 6801012610413',
                 style: TextStyle(fontSize: 16),
               ),
+              SizedBox(height: 20),
+              Text(
+                'ทดสอบวันที่ 7/8/2026',
+                 style: TextStyle(fontSize: 16),
+              )
             ],
           ),
         ),
