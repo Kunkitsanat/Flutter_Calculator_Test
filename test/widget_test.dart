@@ -79,3 +79,4 @@ void main() {
     expect(find.byType(SimpleCalculator), findsNothing);
   });
 }
+
