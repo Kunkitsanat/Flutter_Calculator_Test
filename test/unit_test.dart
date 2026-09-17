@@ -34,4 +34,18 @@ void main() {
     });
 
   });
+
+  group('ทดสอบกรณี Odd/Even', () {
+    test('ทดสอบเลขคี่ (Odd)', () {
+      int number = 7;
+      bool isOdd = number % 2 != 0;
+      expect(isOdd, true);
+    });
+
+    test('ทดสอบเลขคู่ (Even)', () {
+      int number = 8;
+      bool isEven = number % 2 == 0;
+      expect(isEven, true);
+    });
+  });
 }
