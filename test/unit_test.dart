@@ -34,6 +34,11 @@ void main() {
       expect(result, 'Error: Can\'t divide by 0'); 
     });
 
+    test('ทดสอบกรณี cal vat', () {
+      String result = calVat(100, '+', 0);
+      expect(result, '107.0');
+    });
+
   });
     group('Unit Test: ตรวจสอบตรรกะ checkOddEven', () {
     test('คืนค่า EVEN เมื่อมีเลขคู่มากกว่าเลขคี่ (เช่น 2, 4, 1)', () {

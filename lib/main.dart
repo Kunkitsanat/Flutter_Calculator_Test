@@ -3,6 +3,7 @@ import 'package:simple_calc/calculate.dart';
 import 'about_page.dart';
 import 'odd_even.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,7 +37,6 @@ class _CalculatorPage extends State<SimpleCalculator> {
 
   String _result = "";
   String operator = "";
-  double vat = 0.07;
 
   List<String> history = [];
 
@@ -46,13 +46,6 @@ class _CalculatorPage extends State<SimpleCalculator> {
     });
   }
 
-  String calVat(double num1, String op, double num2) {
-    String result = calculate(num1, op, num2);
-    double x = double.tryParse(result) ?? 0;
-
-    double total = x + (x * vat);
-    return total.toString();
-  }
 
   @override
   Widget build(BuildContext context) {

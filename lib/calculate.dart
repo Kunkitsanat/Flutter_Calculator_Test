@@ -23,3 +23,11 @@ String calculate(double num1,String op,double num2 ){
 
   return total.toString();
 }
+
+String calVat(double num1, String op, double num2) {
+    String result = calculate(num1, op, num2);
+    double x = double.tryParse(result) ?? 0;
+
+    double total = x + (x * 0.07);
+    return total.toString();
+  }
