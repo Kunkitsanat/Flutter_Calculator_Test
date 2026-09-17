@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simple_calc/calculate.dart'; // นำเข้าไฟล์ที่มีฟังก์ชันคำนวณ
+import 'package:simple_calc/calculate.dart';
+import 'package:simple_calc/odd_even.dart'; // นำเข้าไฟล์ที่มีฟังก์ชันตรวจสอบเลขคี่-คู่
 
 void main() {
   group('ทดสอบตรรกะการคำนวณ (Calculate Unit Test)', () {
@@ -34,18 +35,13 @@ void main() {
     });
 
   });
-
-  group('ทดสอบกรณี Odd/Even', () {
-    test('ทดสอบเลขคี่ (Odd)', () {
-      int number = 7;
-      bool isOdd = number % 2 != 0;
-      expect(isOdd, true);
+    group('Unit Test: ตรวจสอบตรรกะ checkOddEven', () {
+    test('คืนค่า EVEN เมื่อมีเลขคู่มากกว่าเลขคี่ (เช่น 2, 4, 1)', () {
+      expect(checkOddEven(2, 4, 1), 'EVEN');
     });
 
-    test('ทดสอบเลขคู่ (Even)', () {
-      int number = 8;
-      bool isEven = number % 2 == 0;
-      expect(isEven, true);
+    test('คืนค่า ODD เมื่อมีเลขคี่มากกว่าเลขคู่ (เช่น 1, 3, 2)', () {
+      expect(checkOddEven(1, 3, 2), 'ODD');
     });
   });
 }

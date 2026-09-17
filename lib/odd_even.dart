@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
 
-class OddEven extends StatefulWidget {
-  const OddEven({super.key});
-
-  @override
-  State<OddEven> createState() => _OddEvenState();
-}
-
-class _OddEvenState extends State<OddEven> {
-  final TextEditingController num1 = TextEditingController();
-  final TextEditingController num2 = TextEditingController();
-  final TextEditingController num3 = TextEditingController();
-  String result = "";
-
   String checkOddEven(double num1 , double num2 , double num3){
     int odd = 0;
     int even = 0;
@@ -33,6 +20,20 @@ class _OddEvenState extends State<OddEven> {
       return "ODD";
     }
   }
+
+class OddEven extends StatefulWidget {
+  const OddEven({super.key});
+
+  @override
+  State<OddEven> createState() => _OddEvenState();
+}
+
+class _OddEvenState extends State<OddEven> {
+  final TextEditingController num1 = TextEditingController();
+  final TextEditingController num2 = TextEditingController();
+  final TextEditingController num3 = TextEditingController();
+  String result = "";
+
 
   @override
   Widget build(BuildContext context) {
