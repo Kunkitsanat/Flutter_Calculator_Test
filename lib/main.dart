@@ -139,6 +139,7 @@ class _CalculatorPage extends State<SimpleCalculator> {
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
+                      key : const Key('result_text'),
                       _result.isEmpty ? "0" : _result,
                       style: const TextStyle(
                         fontSize: 18,
@@ -258,6 +259,7 @@ class _CalculatorPage extends State<SimpleCalculator> {
                 ListTile(
                   dense: true,
                   title: Text(
+                    key: Key(item), // เพิ่ม Key ให้กับแต่ละ ListTile
                     item,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 18),

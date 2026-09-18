@@ -18,11 +18,12 @@ void main() {
     await tester.tap(addButton);
     await tester.pump();
 
-    // ตรวจสอบผลลัพธ์ว่าได้ 15 หรือไม่
-    expect(find.text('15.0'), findsOneWidget);
+    final resultWidget = tester.widget<Text>(find.byKey(const Key('result_text')));
+    expect(resultWidget.data, '15.0');
 
-    // ตรวจสอบว่ามีประวัติการคำนวณขึ้นใน History
-    expect(find.text('10 + 5 = 15.0'), findsOneWidget);
+  // 2. สำหรับประวัติ History ก็สามารถเช็คค่าผ่าน widget properties ได้เช่นกัน
+    final historyWidget = tester.widget<Text>(find.byKey(const Key('10 + 5 = 15.0')));
+    expect(historyWidget.data, '10 + 5 = 15.0');
   });
 
   testWidgets('ทดสอบการคำนวณ VAT (7%)', (WidgetTester tester) async {
@@ -44,8 +45,12 @@ void main() {
     await tester.pump();
 
     // 100 + (100 * 0.07) = 107.0
-    expect(find.text('107.0'), findsOneWidget);
-    expect(find.text('Cal VAT: 107.0'), findsOneWidget);
+    final resultWidget = tester.widget<Text>(find.byKey(const Key('result_text')));
+    expect(resultWidget.data, '107.0');
+
+  // 2. สำหรับประวัติ History ก็สามารถเช็คค่าผ่าน widget properties ได้เช่นกัน
+    final historyWidget = tester.widget<Text>(find.byKey(const Key('Cal VAT: 107.0')));
+    expect(historyWidget.data, 'Cal VAT: 107.0');
   });
 
   testWidgets('ทดสอบปุ่มล้างประวัติ (C)', (WidgetTester tester) async {
