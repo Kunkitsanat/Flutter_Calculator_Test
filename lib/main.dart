@@ -274,6 +274,7 @@ class _CalculatorPage extends State<SimpleCalculator> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
+          key: const Key('Calculator'),
           'เครื่องคิดเลขแบบง่าย',
           style: TextStyle(fontSize: 18),
         ),

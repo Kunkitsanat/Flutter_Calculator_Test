@@ -39,6 +39,7 @@ class _OddEvenState extends State<OddEven> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        key: const Key('OddEven_Appbar'),
         title: const Text('OddEven'),
       ),
       body: Column(
@@ -108,6 +109,7 @@ class _OddEvenState extends State<OddEven> {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
+                    key: const Key('Odd/Even_text'),
                     result.isEmpty ? "0" : result,
                   style: const TextStyle(
                     fontSize: 24,
